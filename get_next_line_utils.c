@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Untitled-1                                         :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguelhenriques <miguelhenriques@studen    +#+  +:+       +#+        */
+/*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:57:23 by miguelhenri       #+#    #+#             */
-/*   Updated: 2024/12/12 17:57:23 by miguelhenri      ###   ########.fr       */
+/*   Updated: 2025/03/10 17:11:52 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *s, char c)
+size_t	gnl_ft_strlen(char *s, char c)
 {
 	char	*i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(char *s, char c)
 	return (i - s);
 }
 
-char	*ft_strjoin(char *str1, char *str2)
+char	*gnl_ft_strjoin(char *str1, char *str2)
 {
 	char	*result;
 	size_t	len1;
@@ -32,8 +32,8 @@ char	*ft_strjoin(char *str1, char *str2)
 	size_t	i;
 	size_t	j;
 
-	len1 = ft_strlen(str1, '\0');
-	len2 = ft_strlen(str2, '\0');
+	len1 = gnl_ft_strlen(str1, '\0');
+	len2 = gnl_ft_strlen(str2, '\0');
 	result = (char *)malloc(len1 + len2 + 1);
 	if (!result)
 		return (NULL);
@@ -48,7 +48,7 @@ char	*ft_strjoin(char *str1, char *str2)
 	return (result);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*gnl_ft_strchr(char *s, int c)
 {
 	if (!s)
 		return (NULL);

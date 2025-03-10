@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguelhenriques <miguelhenriques@studen    +#+  +:+       +#+        */
+/*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 10:50:51 by luarodri          #+#    #+#             */
-/*   Updated: 2024/12/12 17:51:07 by miguelhenri      ###   ########.fr       */
+/*   Updated: 2025/03/10 17:11:33 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*function_read(int fd, char *str)
 	if (!temp)
 		return (NULL);
 	bytes_read = 1;
-	while (!ft_strchr(str, '\n') && (bytes_read != 0))
+	while (!gnl_ft_strchr(str, '\n') && (bytes_read != 0))
 	{
 		bytes_read = read(fd, temp, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -45,7 +45,7 @@ char	*function_read(int fd, char *str)
 			return (NULL);
 		}
 		temp[bytes_read] = '\0';
-		str = ft_strjoin(str, temp);
+		str = gnl_ft_strjoin(str, temp);
 	}
 	free(temp);
 	return (str);
@@ -86,13 +86,13 @@ char	*ft_getlefts(char *left)
 	int		j;
 	int		l;
 
-	i = ft_strlen(left, '\n');
+	i = gnl_ft_strlen(left, '\n');
 	if (!left[i])
 	{
 		free(left);
 		return (NULL);
 	}
-	l = ft_strlen(left, '\0');
+	l = gnl_ft_strlen(left, '\0');
 	rest = (char *)malloc(sizeof(char) * (l - i + 1));
 	if (!rest)
 	{
@@ -108,7 +108,7 @@ char	*ft_getlefts(char *left)
 	return (rest);
 }
 
-int main(void) {
+/* int main(void) {
     int fd = open("teste.txt", O_RDONLY);
     if (fd == -1) {
         perror("Erro ao abrir o arquivo");
@@ -123,4 +123,4 @@ int main(void) {
     }
     close(fd);
     return 0;
-}
+} */
